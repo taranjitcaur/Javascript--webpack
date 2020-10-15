@@ -1,0 +1,24 @@
+{
+  "name": "forkify-9",
+  "version": "1.0.0",
+  "description": "A Javascript project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open",  
+    "server": "node server.js"
+  },
+  "author": "Taranjit Kaur",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^4.5.0",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-dev-server": "^3.5.1"
+  }
+}
