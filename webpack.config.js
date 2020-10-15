@@ -5,22 +5,33 @@ const path = require('path');
   module.exports = {
     mode: 'development',
     entry: {
-      app: './src/index.js',
-      print: './src/print.js',
+      loader: 'babel-polyfill',
+      app: './src/js/index.js'
     },
     devtool: 'inline-source-map',
-   devServer: {
-     contentBase: './dist',
-   },
+    devServer: {
+      contentBase: './dist',
+    },
     plugins: [
       new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
       new HtmlWebpackPlugin({
-        title: 'Development',
+        filename: 'index.html',
+        template: './src/index.html'
       }),
     ],
     output: {
-      filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'),
-      publicPath: '/',
+      filename: 'js/[name].bundle.js',
+      path: path.resolve(__dirname, 'dist')
     },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader'
+          }
+        }
+      ]
+    }
   };
