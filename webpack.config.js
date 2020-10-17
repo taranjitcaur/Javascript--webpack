@@ -48,20 +48,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
             loader: "html-loader",
             options: {
               attributes: {
-                list: [
+                list: [                 
                   {
-                    // Attribute name
-                    attribute: 'src',
-                    // Type of processing, can be `src` or `scrset`
+                    tag: 'use',
+                    attribute: 'href',
                     type: 'src',
-                    // Allow to filter some attributes (optional)
-                    filter: (tag, attribute, attributes, resourcePath) => {
-                      // The `tag` argument contains a name of the HTML tag.
-                      // The `attribute` argument contains a name of the HTML attribute.
-                      // The `attributes` argument contains all attributes of the tag.
-                      // The `resourcePath` argument contains a path to the loaded HTML file.
-    
-                      // choose all HTML tags except img tag
+                  },
+                  {
+                    attribute: 'src',
+                    type: 'src',         
+                    filter: (tag, attribute, attributes, resourcePath) => {      
                       return tag.toLowerCase() == 'img';
                     },
                   },
